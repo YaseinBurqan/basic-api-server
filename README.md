@@ -2,8 +2,8 @@
 
 ## Submission
 
-[GitHub Repo](https://github.com/Esam-Ankir/basic-api-server)
+[GitHub Repo](https://github.com/YaseinBurqan/basic-api-server)
 
-[Actions](https://github.com/Esam-Ankir/basic-api-server/actions)
+[Actions](https://github.com/YaseinBurqan/basic-api-server/actions)
 
 [Heroku Home Page](https://yasein-basic-api-server.herokuapp.com/)
