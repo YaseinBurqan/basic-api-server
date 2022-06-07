@@ -6,7 +6,6 @@ const Food = (sequelize, DataTypes) =>
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     FoodType: {
       type: DataTypes.STRING,
     },
