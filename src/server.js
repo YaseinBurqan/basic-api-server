@@ -1,20 +1,27 @@
-"use strict"; 
+"use strict";
 require("dotenv").config();
-const PORT = process.env.PORT || 3000;
-
+const PORT = process.env.PORT || 5000;
 
 const express = require("express");
 const app = express();
 
 const notFoundHandler = require("./handlers/404");
 const errorHandler = require("./handlers/500");
-const peopleRoutes = require("./routes/people.route.js");
+
+const logger = require("./middleware/logger");
+
+const foodRoutes = require("./routes/foodRoutes");
+const clothesRoutes = require("./routes/clothesRoutes");
 
 app.use(express.json());
-app.use(peopleRoutes);
-app.use("*", notFoundHandler);
 
-app.use(errorHandler); 
+app.use(foodRoutes);
+app.use(clothesRoutes);
+
+app.use(logger);
+
+app.use("*", notFoundHandler);
+app.use(errorHandler);
 
 function start(PORT) {
   app.listen(PORT, () => {

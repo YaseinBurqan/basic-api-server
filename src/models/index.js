@@ -3,7 +3,9 @@ require("dotenv").config();
 
 const POSTGRES_URI = process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL;
 const { Sequelize, DataTypes } = require("sequelize");
-const people = require("./people.model.js");
+
+const Food = require("./food");
+const Clothes = require("./clothes");
 
 let sequelizeOptions =
   process.env.NODE_ENV === "production"
@@ -11,7 +13,7 @@ let sequelizeOptions =
         dialect: "postgres",
         protocol: "postgres",
         dialectOptions: {
-          ssl: true,
+          ssl: { require: true, rejectUnauthorized: false },
           native: true,
         },
       }
@@ -20,5 +22,6 @@ let sequelizeOptions =
 let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 module.exports = {
   db: sequelize,
-  People: people(sequelize, DataTypes),
+  Food: Food(sequelize, DataTypes),
+  Clothes: Clothes(sequelize, DataTypes),
 };
