@@ -2,22 +2,24 @@
   "development": {
     "username": "username",
     "password": "password",
-    "database": "production",
+    "database": "people",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL"
   },
   "test": {
     "username": "username",
     "password": "password",
-    "database": "production",
+    "database": "people",
     "host": "127.0.0.1",
     "dialect": "sqlite:memory:"
   },
   "production": {
     "username": "username",
     "password": "password",
-    "database": "production",
+    "database": "people",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL"
   }
 }
