@@ -1,7 +1,7 @@
 "use strict";
 const express = require("express");
 
-const { Food } = require("../models/index");
+const { food } = require("../models/index");
 
 const FoodRouter = express.Router();
 
@@ -12,26 +12,26 @@ FoodRouter.put("/food/:id", updateFood);
 FoodRouter.delete("/food/:id", deleteFood);
 
 async function getFood(req, res) {
-  const allFood = await Food.findAll();
+  const allFood = await food.findAll();
   res.status(200).json(allFood);
 }
 
 async function getOneFood(req, res) {
   const foodId = parseInt(req.params.id);
-  let foodName = await Food.findOne({ where: { id: foodId } });
+  let foodName = await food.findOne({ where: { id: foodId } });
   res.status(200).json(foodName);
 }
 
 async function addFood(req, res) {
   let newFood = req.body;
-  let food = await Food.create(newFood);
+  let food = await food.create(newFood);
   res.status(201).json(food);
 }
 
 async function updateFood(req, res) {
   let foodId = parseInt(req.params.id);
   let updateFood = req.body;
-  let foundFood = await Food.findOne({ where: { id: foodId } });
+  let foundFood = await food.findOne({ where: { id: foodId } });
   if (foundFood) {
     let updatedFood = await foundFood.update(updateFood);
     res.status(201).json(updatedFood);

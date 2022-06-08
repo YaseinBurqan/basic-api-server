@@ -15,9 +15,10 @@ const clothesRoutes = require("./routes/clothesRoutes");
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome To The Main  website");
-});
+// app.get("/", (req, res) => {
+//   res.status(200).send("Welcome To The Main  website");
+// });
+
 app.use(foodRoutes);
 app.use(clothesRoutes);
 
